@@ -37,7 +37,7 @@ class Workouts extends StatelessWidget {
                       Container(
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage("assets/workouts/fullbody.png"),
+                            image: AssetImage("assets/workouts/fullbody1.png"),
                             fit: BoxFit.fill,
                           ),
                           borderRadius: BorderRadius.only(
