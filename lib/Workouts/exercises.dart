@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gobal_women_fitness_app/Workouts/wortkoutProgress.dart';
 
 class Exercises extends StatefulWidget {
   const Exercises({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _ExercisesState extends State<Exercises> {
         ),
         backgroundColor: Colors.pink[50],
         title: const Text(
-          "Workout Name",
+          "FULL BODY Name",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -67,20 +68,20 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex1,
-                          onChanged: (value) =>
-                          {
-                            setState(() {
-                              ex1 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        // Checkbox(
+                        //   value: ex1,
+                        //   onChanged: (value) =>
+                        //   {
+                        //     setState(() {
+                        //       ex1 = value!;
+                        //     }),
+                        //   },
+                        // ),
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 1 Name",
+                              "Lunges",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -94,7 +95,7 @@ class _ExercisesState extends State<Exercises> {
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/lunges.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -129,19 +130,11 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex2,
-                          onChanged: (value) => {
-                            setState(() {
-                              ex2 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 2 Name",
+                              "Crunches",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -151,11 +144,11 @@ class _ExercisesState extends State<Exercises> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text("X 10")
+                            Text("X 15")
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/crunches.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -190,19 +183,11 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex3,
-                          onChanged: (value) => {
-                            setState(() {
-                              ex3 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 3 Name",
+                              "Mountain Climb",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -212,11 +197,11 @@ class _ExercisesState extends State<Exercises> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text("X 10")
+                            Text("X 30")
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/mountainclimb.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -251,19 +236,11 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex4,
-                          onChanged: (value) => {
-                            setState(() {
-                              ex4 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 4 Name",
+                              "Push Ups",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -277,7 +254,7 @@ class _ExercisesState extends State<Exercises> {
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/pushups.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -312,19 +289,11 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex5,
-                          onChanged: (value) => {
-                            setState(() {
-                              ex5 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 5 Name",
+                              "Single Leg Bridge",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -338,7 +307,7 @@ class _ExercisesState extends State<Exercises> {
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/singlelegbridge.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -373,19 +342,11 @@ class _ExercisesState extends State<Exercises> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Checkbox(
-                          value: ex6,
-                          onChanged: (value) => {
-                            setState(() {
-                              ex6 = value!;
-                            }),
-                          },
-                        ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             Text(
-                              "Exercise 6 Name",
+                              "Squats",
                               style: TextStyle(
                                 color: Color.fromRGBO(55, 75, 155, 1),
                                 fontSize: 20,
@@ -399,7 +360,7 @@ class _ExercisesState extends State<Exercises> {
                           ],
                         ),
                         Image.asset(
-                          "assets/workouts/lunges.jpg",
+                          "assets/workouts/fullbody/squats.jpg",
                           height: 120,
                           width: 120,
                         ),
@@ -415,6 +376,55 @@ class _ExercisesState extends State<Exercises> {
           ),
         ),
       ),
+      floatingActionButton:  FloatingActionButton.extended(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(100.0)),
+        ),
+          backgroundColor: Colors.transparent,
+          label: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(100.0),
+              ),
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(55, 75, 155, 1),
+                  Color.fromRGBO(255, 129, 151, 1)
+                ],
+              ),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(
+                      'START',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Icon(
+                      Icons.play_arrow_outlined,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const WorkoutProgress()),
+            );
+          }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
