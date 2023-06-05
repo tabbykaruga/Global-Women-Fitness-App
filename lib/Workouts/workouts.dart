@@ -26,89 +26,94 @@ class Workouts extends StatelessWidget {
       body: SafeArea(
         minimum: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
-          physics: const ScrollPhysics(),
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemCount: _getWorkoutData().length,
-            itemBuilder: (context, index) {
-              final workout = _getWorkoutData()[index];
-              return Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const SizedBox(height: 20.0),
-                  GestureDetector(
-                    onTap: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Exercises()),
-                      ),
-                    },
-                    child: Card(
-                      elevation: 5,
-                      shadowColor: const Color.fromRGBO(55, 75, 155, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
-                      color: const Color.fromRGBO(55, 75, 155, 1),
-                      margin: const EdgeInsets.only(bottom: 20.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(workout.image),
-                                fit: BoxFit.fill,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                  topRight: Radius.circular(16.0),
-                                  topLeft: Radius.circular(16.0)),
-                            ),
-                            height: 200,
-                            width: double.infinity,
+          child: Column(
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: _getWorkoutData().length,
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection:Axis.vertical,
+                itemBuilder: (context, index) {
+                  final workout = _getWorkoutData()[index];
+                  return Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      const SizedBox(height: 20.0),
+                      GestureDetector(
+                        onTap: () => {
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Exercises()),
                           ),
-                          ListTile(
-                            title: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 12.0),
-                              child: Text(
-                                workout.title,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            subtitle: Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.timer,
-                                    size: 15,
-                                    color: Colors.white.withOpacity(0.7),
+                        },
+                        child: Card(
+                          elevation: 5,
+                          shadowColor: const Color.fromRGBO(55, 75, 155, 1),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          color: const Color.fromRGBO(55, 75, 155, 1),
+                          margin: const EdgeInsets.only(bottom: 20.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(workout.image),
+                                    fit: BoxFit.fill,
                                   ),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    workout.duration,
-                                    style: TextStyle(
-                                      color: Colors.white.withOpacity(0.7),
-                                      fontSize: 15,
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(16.0),
+                                      topLeft: Radius.circular(16.0)),
+                                ),
+                                height: 200,
+                                width: double.infinity,
+                              ),
+                              ListTile(
+                                title: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 12.0),
+                                  child: Text(
+                                    workout.title,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ],
+                                ),
+                                subtitle: Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.timer,
+                                        size: 15,
+                                        color: Colors.white.withOpacity(0.7),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      Text(
+                                        workout.duration,
+                                        style: TextStyle(
+                                          color: Colors.white.withOpacity(0.7),
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                ],
-              );
-            },
+                    ],
+                  );
+                },
+              ),
+            ],
           ),
         ),
       ),
