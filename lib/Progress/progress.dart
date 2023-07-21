@@ -1,13 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_expand_view/expanded_collapse_right_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../HomePage.dart';
+import '../resources/AssetsManager.dart';
+import '../resources/model/ColorManager.dart';
 
-class ProgressPage extends StatelessWidget {
+class ProgressPage extends StatefulWidget {
   const ProgressPage({Key? key}) : super(key: key);
 
   @override
+  State<ProgressPage> createState() => _ProgressPageState();
+}
+
+class _ProgressPageState extends State<ProgressPage> {
+  var date = DateTime.now();
+  final _heightController = TextEditingController();
+  final _weightController = TextEditingController();
+  double? _bmi;
+  String _message = 'Please enter your height an weight';
+
+  void _calculate() {
+    final double? height = double.tryParse(_heightController.value.text);
+    final double? weight = double.tryParse(_weightController.value.text);
+
+    // Check if the inputs are valid
+    if (height == null || height <= 0 || weight == null || weight <= 0) {
+      setState(() {
+        _message = "Your height and weigh must be positive numbers";
+      });
+      return;
+    }
+
+    setState(() {
+      _bmi = weight / (height * height);
+      if (_bmi! < 18.5) {
+        _message = "UNDERWEIGHT";
+      } else if (_bmi! < 25) {
+        _message = 'NORMAL';
+      } else if (_bmi! < 30) {
+        _message = 'OVERWEIGHT';
+      } else {
+        _message = 'OBESE';
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var date = DateTime.now();
     return Scaffold(
       body: SafeArea(
         minimum: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -19,28 +58,28 @@ class ProgressPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Image.asset(
-                    "assets/workouts/fullbody.png",
+                    WorkOutAssets.progressBody,
                     height: 150,
                   ),
-                  const Column(
+                  Column(
                     children: [
                       Icon(
                         Icons.flash_on,
-                        color: Color.fromRGBO(255, 129, 151, 1),
+                        color: ColorManager.primary,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         "00",
                         style: TextStyle(
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: ColorManager.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "WORKOUTS",
                         style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 0.3),
@@ -50,25 +89,25 @@ class ProgressPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  const Column(
+                  Column(
                     children: [
                       Icon(
                         Icons.whatshot,
-                        color: Color.fromRGBO(255, 129, 151, 1),
+                        color: ColorManager.primary,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         "00",
                         style: TextStyle(
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: ColorManager.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "CALORIES",
                         style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 0.3),
@@ -78,25 +117,25 @@ class ProgressPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  const Column(
+                  Column(
                     children: [
                       Icon(
                         Icons.timer,
-                        color: Color.fromRGBO(255, 129, 151, 1),
+                        color: ColorManager.primary,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         "00",
                         style: TextStyle(
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: ColorManager.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "MINUTES",
                         style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 0.3),
@@ -108,58 +147,10 @@ class ProgressPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const Divider(
+              Divider(
                 height: 60,
                 thickness: 3,
-                color: Color.fromRGBO(55, 75, 155, 0.2),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    "BMI CALCULATOR",//https://www.kindacode.com/article/write-a-simple-bmi-calculator-with-flutter/
-                    style: TextStyle(
-                      color: Color.fromRGBO(55, 75, 155, 1),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'KG',
-                      icon: Icon(Icons.monitor_weight_outlined),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'CM',
-                      icon: Icon(Icons.height),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  FloatingActionButton.extended(
-                    label: const Text("CALCULATE"),
-                    onPressed: () {},
-                    icon: const Icon(Icons.calculate),
-                    backgroundColor: const Color.fromRGBO(55, 75, 155, 1),
-                  ),
-                ],
-              ),
-              const Divider(
-                height: 60,
-                thickness: 3,
-                color: Color.fromRGBO(55, 75, 155, 0.2),
+                color: ColorManager.lightBlue,
               ),
               TableCalendar(
                 firstDay: DateTime.utc(date.year, 01, 01),
@@ -168,18 +159,17 @@ class ProgressPage extends StatelessWidget {
                 calendarFormat: CalendarFormat.month,
                 calendarStyle: CalendarStyle(
                   isTodayHighlighted: true,
-                  todayDecoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 129, 151, 1)),
+                  todayDecoration: BoxDecoration(color: ColorManager.primary),
                   selectedDecoration:
                       BoxDecoration(color: Theme.of(context).primaryColor),
                 ),
                 headerStyle: HeaderStyle(
                   titleCentered: true,
                   formatButtonDecoration: BoxDecoration(
-                    color: const Color.fromRGBO(55, 75, 155, 1),
+                    color: ColorManager.blue,
                     borderRadius: BorderRadius.circular(22.0),
                   ),
-                  formatButtonTextStyle: const TextStyle(color: Colors.white),
+                  formatButtonTextStyle: TextStyle(color: ColorManager.white),
                   formatButtonShowsNext: false,
                 ),
                 startingDayOfWeek: StartingDayOfWeek.monday,
@@ -195,62 +185,94 @@ class ProgressPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(color: ColorManager.white),
                     ),
                   ),
                   todayBuilder: (context, date, events) => Container(
                     margin: const EdgeInsets.all(5.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: const Color.fromRGBO(255, 129, 151, 1),
+                        color: ColorManager.primary,
                         borderRadius: BorderRadius.circular(25.0)),
                     child: Text(
                       date.day.toString(),
-                      style: const TextStyle(color: Colors.white),
+                      style: TextStyle(color: ColorManager.white),
                     ),
                   ),
                 ),
               ),
-              const Divider(
+              Divider(
                 height: 60,
                 thickness: 3,
-                color: Color.fromRGBO(55, 75, 155, 0.2),
+                color: ColorManager.lightBlue,
               ),
-              const Row(
-                children: [
-                  Text(
-                    "TODAY / MAY 3, 2021",
+              ExpansionTile(
+                title: Text('BMI CALCULATOR ',
                     style: TextStyle(
-                      color: Color.fromRGBO(55, 75, 155, 1),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: ColorManager.blue),
+                ),
+                children: <Widget>[
+                  Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        padding: const EdgeInsets.all(24),
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            TextField(
+                              keyboardType:
+                              const TextInputType.numberWithOptions(decimal: true),
+                              decoration: const InputDecoration(
+                                  icon: Icon(Icons.height_outlined),
+                                  labelText: 'Height (M)'),
+                              controller: _heightController,
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            TextField(
+                              keyboardType:
+                              const TextInputType.numberWithOptions(decimal: true),
+                              decoration: const InputDecoration(
+                                icon: Icon(Icons.monitor_weight_outlined),
+                                labelText: 'Weight (KG)',
+                              ),
+                              controller: _weightController,
+                            ),
+                            ElevatedButton(
+                              onPressed: _calculate,
+                              child: const Text('Calculate'),
+                            ),
+                            Text(
+                              _bmi == null ? 'No Result' : _bmi!.toStringAsFixed(2),
+                              style: TextStyle(fontSize: 25, color: ColorManager.blue),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              _message,
+                              textAlign: TextAlign.center,
+                            )
+                            // FloatingActionButton.extended(
+                            //   label: const Text("CALCULATE"),
+                            //   onPressed: () {},
+                            //   icon: const Icon(Icons.calculate),
+                            //   backgroundColor: const Color.fromRGBO(55, 75, 155, 1),
+                            // ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
-              Container(
-                  //recent of that day
-                  ),
-              const Divider(
-                height: 60,
-                thickness: 3,
-                color: Color.fromRGBO(55, 75, 155, 0.2),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    "THIS MONTH",
-                    style: TextStyle(
-                      color: Color.fromRGBO(55, 75, 155, 1),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                  //recent of that month
-                  ),
               const SizedBox(
                 height: 20,
               ),
