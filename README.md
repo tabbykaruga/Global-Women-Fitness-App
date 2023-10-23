@@ -2,4 +2,5 @@
 
 A fitness app made for women.
 
+The apk is uploaded.
 
