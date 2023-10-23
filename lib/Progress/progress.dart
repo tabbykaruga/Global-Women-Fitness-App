@@ -28,21 +28,20 @@ class _ProgressPageState extends State<ProgressPage> {
       setState(() {
         _message = "Your height and weigh must be positive numbers";
       });
-      return;
+    }else{
+      setState(() {
+        _bmi = weight / (height * height) *10;
+        if (_bmi! < 18.5) {
+          _message = "UNDERWEIGHT";
+        } else if (_bmi! < 25) {
+          _message = 'NORMAL';
+        } else if (_bmi! < 30) {
+          _message = 'OVERWEIGHT';
+        } else {
+          _message = 'OBESE';
+        }
+      });
     }
-
-    setState(() {
-      _bmi = weight / (height * height);
-      if (_bmi! < 18.5) {
-        _message = "UNDERWEIGHT";
-      } else if (_bmi! < 25) {
-        _message = 'NORMAL';
-      } else if (_bmi! < 30) {
-        _message = 'OVERWEIGHT';
-      } else {
-        _message = 'OBESE';
-      }
-    });
   }
 
   @override

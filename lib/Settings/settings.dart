@@ -38,7 +38,7 @@ class _SettingsState extends State<Settings> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
+              const ListTile(
                 leading: Icon(
                   Icons.settings,
                   size: 30,
@@ -49,8 +49,8 @@ class _SettingsState extends State<Settings> {
                   style: TextStyle(
                     color: Color.fromRGBO(55, 75, 155, 1),
                     fontSize: 20,
-                    decoration: TextDecoration.underline,
-                    fontFamily: "OpenSans",
+                    // decoration: TextDecoration.underline,
+                    // fontFamily: "OpenSans",
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -60,8 +60,8 @@ class _SettingsState extends State<Settings> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -69,19 +69,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.settings_brightness,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Change Theme",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -93,19 +93,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.font_download_outlined,
                           size: 28,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Font Size",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -117,19 +117,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.language,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Language Options",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -141,19 +141,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.mic,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Voice Language",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -165,29 +165,29 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.tune,
                           size: 28,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Preferences",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              ListTile(
+              const ListTile(
                 leading: Icon(
                   Icons.notifications_active,
                   size: 30,
@@ -198,7 +198,7 @@ class _SettingsState extends State<Settings> {
                   style: TextStyle(
                     color: Color.fromRGBO(55, 75, 155, 1),
                     fontSize: 20,
-                    decoration: TextDecoration.underline,
+                    // decoration: TextDecoration.underline,
                     fontFamily: "OpenSans",
                     fontWeight: FontWeight.bold,
                   ),
@@ -215,12 +215,12 @@ class _SettingsState extends State<Settings> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SwitchListTile(
-                        activeColor: Color.fromRGBO(255, 129, 151, 1),
+                        activeColor: const Color.fromRGBO(255, 129, 151, 1),
                         value: _reminder,
-                        title: Text(
+                        title: const Text(
                           "Reminder",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
@@ -232,21 +232,21 @@ class _SettingsState extends State<Settings> {
                         secondary: Icon(
                           Icons.alarm_on,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         height: 2,
                         thickness: 1,
                         color: Color.fromRGBO(255, 129, 151, 0.3),
                       ),
                       SwitchListTile(
-                        activeColor: Color.fromRGBO(255, 129, 151, 1),
+                        activeColor: const Color.fromRGBO(255, 129, 151, 1),
                         value: _receivenoti,
-                        title: Text(
+                        title: const Text(
                           "Receive Notifications",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
@@ -255,13 +255,13 @@ class _SettingsState extends State<Settings> {
                             _receivenoti = value;
                           });
                         },
-                        secondary: Icon(
+                        secondary: const Icon(
                           Icons.notification_important_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         height: 2,
                         thickness: 1,
                         color: Color.fromRGBO(255, 129, 151, 0.3),
@@ -269,10 +269,10 @@ class _SettingsState extends State<Settings> {
                       SwitchListTile(
                         activeColor: Color.fromRGBO(255, 129, 151, 1),
                         value: _receiveappup,
-                        title: Text(
+                        title: const Text(
                           "Receive App Updates",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
@@ -281,20 +281,20 @@ class _SettingsState extends State<Settings> {
                             _receiveappup = value;
                           });
                         },
-                        secondary: Icon(
+                        secondary: const Icon(
                           Icons.update,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              ListTile(
+              const ListTile(
                 leading: Icon(
                   Icons.favorite,
                   size: 30,
@@ -305,7 +305,7 @@ class _SettingsState extends State<Settings> {
                   style: TextStyle(
                     color: Color.fromRGBO(55, 75, 155, 1),
                     fontSize: 20,
-                    decoration: TextDecoration.underline,
+                    // decoration: TextDecoration.underline,
                     fontFamily: "OpenSans",
                     fontWeight: FontWeight.bold,
                   ),
@@ -316,8 +316,8 @@ class _SettingsState extends State<Settings> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -325,19 +325,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.star_outline_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Rate Be Fit",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -349,19 +349,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.mail_outline_outlined,
                           size: 28,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "FeedBack",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -373,19 +373,19 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.book_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Privacy Policy",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                       Divider(
@@ -397,29 +397,29 @@ class _SettingsState extends State<Settings> {
                         leading: Icon(
                           Icons.bookmark_border,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                         title: Text(
                           "Help and Documentation",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
                         trailing: Icon(
                           Icons.keyboard_arrow_right_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              ListTile(
+              const ListTile(
                 leading: Icon(
                   Icons.sync,
                   size: 30,
@@ -430,7 +430,7 @@ class _SettingsState extends State<Settings> {
                   style: TextStyle(
                     color: Color.fromRGBO(55, 75, 155, 1),
                     fontSize: 20,
-                    decoration: TextDecoration.underline,
+                    // decoration: TextDecoration.underline,
                     fontFamily: "OpenSans",
                     fontWeight: FontWeight.bold,
                   ),
@@ -449,10 +449,10 @@ class _SettingsState extends State<Settings> {
                       SwitchListTile(
                         activeColor: Color.fromRGBO(255, 129, 151, 1),
                         value: _googlefit,
-                        title: Text(
+                        title: const Text(
                           "Sync to Google Fit",
                           style: TextStyle(
-                            color: Color.fromRGBO(55, 75, 155, 1),
+                            color: Colors.white,
                             fontFamily: "OpenSans",
                           ),
                         ),
@@ -464,7 +464,7 @@ class _SettingsState extends State<Settings> {
                         secondary: Icon(
                           Icons.cloud_done_outlined,
                           size: 30,
-                          color: Color.fromRGBO(55, 75, 155, 1),
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -482,12 +482,12 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: "OpenSans",
-                      color: Color.fromRGBO(55, 75, 155, 1),
+                      color: Colors.white,
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
             ],

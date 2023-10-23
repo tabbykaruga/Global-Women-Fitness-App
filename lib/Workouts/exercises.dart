@@ -27,7 +27,7 @@ class _ExercisesState extends State<Exercises> {
         ),
         backgroundColor: Colors.pink[50],
         title: const Text(
-          "FULL BODY Name",
+          "FULL BODY",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
