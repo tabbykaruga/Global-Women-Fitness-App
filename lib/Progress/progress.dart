@@ -3,7 +3,7 @@ import 'package:flutter_expand_view/expanded_collapse_right_widget.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../HomePage.dart';
 import '../resources/AssetsManager.dart';
-import '../presentation/ColorManager.dart';
+import '../resources/model/ColorManager.dart';
 
 class ProgressPage extends StatefulWidget {
   const ProgressPage({Key? key}) : super(key: key);

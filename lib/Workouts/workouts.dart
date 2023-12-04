@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/resources/StringManager.dart';
 import 'package:gobal_women_fitness_app/resources/AssetsManager.dart';
 import 'package:gobal_women_fitness_app/resources/ValueManager.dart';
-import 'package:gobal_women_fitness_app/presentation/ColorManager.dart';
+import 'package:gobal_women_fitness_app/resources/model/ColorManager.dart';
 import '../resources/model/model.dart';
 import 'exercises.dart';
 
@@ -28,6 +28,7 @@ class Workouts extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+
               ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 shrinkWrap: true,
@@ -49,12 +50,12 @@ class Workouts extends StatelessWidget {
                           ),
                         },
                         child: Card(
-                          shadowColor: ColorManager.blue,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          color: ColorManager.blue,
-                          margin: const EdgeInsets.only(bottom: 20.0),
+                          //shadowColor: ColorManager.blue,
+                          // shape: RoundedRectangleBorder(
+                          //   borderRadius: BorderRadius.circular(16.0),
+                          // ),
+                          //color: ColorManager.blue,
+                          //margin: const EdgeInsets.only(bottom: 20.0),
                           child: Column(
                             children: [
                               Container(

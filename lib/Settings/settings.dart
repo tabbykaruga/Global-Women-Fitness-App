@@ -1,10 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gobal_women_fitness_app/Auth/Login.dart';
-import 'package:gobal_women_fitness_app/Auth/LoginOrRegister.dart';
-import 'package:gobal_women_fitness_app/presentation/ColorManager.dart';
-
-import '../presentation/StateManager.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -20,24 +14,6 @@ class _SettingsState extends State<Settings> {
   bool _receiveappup = false;
   bool _googlefit = false;
 
-  Future usersignOut() async {
-
-    loadingAnimation(context);
-    try {
-      await FirebaseAuth.instance.signOut();
-      Navigator.pop(context);
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const LoginOrRegisterPage()));
-      // Sign-out successful.
-
-    } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      genericErrorMessage(context, e.toString());
-    } catch (e) {
-      Navigator.pop(context);
-      genericErrorMessage(context, e.toString());
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +56,6 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
               Card(
-                color: ColorManager.blue,
                 elevation: 4,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
@@ -231,7 +206,6 @@ class _SettingsState extends State<Settings> {
               ),
               Card(
                 elevation: 4,
-                color: ColorManager.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -255,7 +229,7 @@ class _SettingsState extends State<Settings> {
                             _reminder = value;
                           });
                         },
-                        secondary: const Icon(
+                        secondary: Icon(
                           Icons.alarm_on,
                           size: 30,
                           color: Colors.white,
@@ -339,7 +313,6 @@ class _SettingsState extends State<Settings> {
               ),
               Card(
                 elevation: 4,
-                color: ColorManager.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -465,7 +438,6 @@ class _SettingsState extends State<Settings> {
               ),
               Card(
                 elevation: 4,
-                color: ColorManager.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -489,36 +461,20 @@ class _SettingsState extends State<Settings> {
                             _googlefit = value;
                           });
                         },
-                        secondary: const Icon(
+                        secondary: Icon(
                           Icons.cloud_done_outlined,
                           size: 30,
                           color: Colors.white,
                         ),
                       ),
-                      ListTile(
-                        leading: const Icon(
-                          Icons.logout,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        title: const Text(
-                          "Log Out",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "OpenSans",
-                          ),
-                        ),
-                        onTap: usersignOut,
-                      ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 25,
               ),
-
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -526,7 +482,7 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: "OpenSans",
-                      color: Colors.black26,
+                      color: Colors.white,
                     ),
                   ),
                 ],

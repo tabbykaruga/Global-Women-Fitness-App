@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gobal_women_fitness_app/presentation/ColorManager.dart';
+import 'package:gobal_women_fitness_app/resources/model/ColorManager.dart';
 import '../Progress/progress.dart';
 import 'exercises.dart';
 

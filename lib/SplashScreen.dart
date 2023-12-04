@@ -57,22 +57,22 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ],
           ),
-          const Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 30.0),
-                child: Text(
-                  'Powered By TMK',
-                  style: TextStyle(
-                    fontSize: 15,
-                    // fontFamily: 'Arial',
-                    color: Color.fromRGBO(55, 75, 155, 1),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // const Expanded(
+          //   child: Align(
+          //     alignment: FractionalOffset.bottomCenter,
+          //     child: Padding(
+          //       padding: EdgeInsets.only(bottom: 30.0),
+          //       child: Text(
+          //         'Powered By Wana Fitness',
+          //         style: TextStyle(
+          //           fontSize: 15,
+          //           // fontFamily: 'Arial',
+          //           color: Color.fromRGBO(55, 75, 155, 1),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ]),
       ),
     );

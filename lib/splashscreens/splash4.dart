@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/splashscreens/splashpages.dart';
-
-import '../Auth/AuthPage.dart';
+import '../HomePage.dart';
 
 class Splash4 extends StatelessWidget {
   const Splash4({super.key});
@@ -133,14 +132,14 @@ class Splash4 extends StatelessWidget {
                 ],
               ),
             ),
-            const Expanded(
+            Expanded(
               child: Align(
                 alignment: FractionalOffset.bottomCenter,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 30.0),
+                  padding: const EdgeInsets.only(bottom: 30.0),
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
+                    children: const [
                       Icon(
                         Icons.arrow_back,
                         size: 20,
@@ -179,13 +178,13 @@ class Splash4 extends StatelessWidget {
                   ],
                 ),
               ),
-              child: const Padding(
-                padding: EdgeInsets.fromLTRB(20, 9, 10, 8),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 9, 10, 8),
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Wrap(
                     crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'NEXT',
                         style: TextStyle(
@@ -208,7 +207,7 @@ class Splash4 extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AuthPage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             }),
       ),

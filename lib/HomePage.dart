@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/Profile/profile.dart';
 import 'package:gobal_women_fitness_app/Settings/settings.dart';
 import 'package:gobal_women_fitness_app/Workouts/workouts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'Progress/progress.dart';
+
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,12 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   int _selectedIndex = 0;
 
-  late final GoogleSignInAccount user;
-  final List<Widget> _widgetOptions;
-
-  _HomePageState() : _widgetOptions = <Widget>[
+  static  final List<Widget> _widgetOptions = <Widget>[
     const Workouts(),
     const ProgressPage(),
     const Profile(),
