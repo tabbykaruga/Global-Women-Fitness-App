@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gobal_women_fitness_app/Auth/LoginOrRegister.dart';
+import 'package:gobal_women_fitness_app/HomePage.dart';
 import 'package:gobal_women_fitness_app/Workouts/exercises.dart';
 import 'package:gobal_women_fitness_app/Workouts/workouts.dart';
 import 'package:gobal_women_fitness_app/resources/StringManager.dart';
@@ -7,8 +9,9 @@ import '../SplashScreen.dart';
 
 class Routes{
   static const String splashRoute = "/";
-  static const String workoutRoute = "/onWorkout";
-  static const String exerciseRoute = "/exercise";
+  static const String LoginOrRegisterRoute = "/LoginOrRegisterRoute";
+  static const String homeRoute = "/homeRoute";
+
 
 }
 
@@ -17,13 +20,10 @@ class RouteGenerator{
     switch(routeSettings.name){
       case Routes.splashRoute :
         return MaterialPageRoute(builder: (_)=> const SplashScreen());
-      case Routes.workoutRoute :
-        return MaterialPageRoute(builder: (_)=> const Workouts());
-      case Routes.exerciseRoute :
-        return MaterialPageRoute(builder: (_)=> const Exercises());
-
-      // case Routes.loginRoute :
-      //   return MaterialPageRoute(builder: (_)=> const LoginView());
+      case Routes.LoginOrRegisterRoute :
+        return MaterialPageRoute(builder: (_)=> const LoginOrRegisterPage());
+      case Routes.homeRoute :
+        return MaterialPageRoute(builder: (_)=> const HomePage());
       default:
         return unDefinedRoute();
     }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137122248646",
+    "project_id": "globalwomenfitness",
+    "storage_bucket": "globalwomenfitness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137122248646:android:d6bf20ee955d5eaf3f24c7",
+        "android_client_info": {
+          "package_name": "com.example.gobal_women_fitness_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137122248646-7541vco17n1op280d8eevge50ql4mir2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL08WvX_tTug6Cb5UVZDqJbtujtOzjeeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137122248646-7541vco17n1op280d8eevge50ql4mir2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
