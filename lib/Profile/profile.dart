@@ -1,7 +1,23 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/Settings/settings.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../HomePage.dart';
+
+// class ProfilePage extends StatefulWidget {
+//   const ProfilePage({Key? key}) : super(key: key);
+//
+//   @override
+//   State<ProfilePage> createState() => _ProfilePageState();
+// }
+//
+// class _ProfilePageState extends State<ProfilePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -11,27 +27,47 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+
+  final user = FirebaseAuth.instance.currentUser;
+  var emailAddress =FirebaseAuth.instance.currentUser!.email;
+  var username =FirebaseAuth.instance.currentUser!.displayName;
+  var photoURL =FirebaseAuth.instance.currentUser!.photoURL;
+  var fallbackImageURL = 'https://example.com/dummy-image.png';
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         minimum: const EdgeInsets.symmetric(horizontal: 12.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Center(
-                  child: Icon(
-                    Icons.account_circle_sharp,
-                    size: 120,
-                    color: Color.fromRGBO(255, 129, 151, 1),
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundImage: photoURL != null && photoURL!.isNotEmpty
+                        ? NetworkImage(photoURL!)
+                        : NetworkImage(fallbackImageURL),
                   ),
+                  )
+                ),
+              Text(
+                username!,
+                style: const TextStyle(
+                  color: Color.fromRGBO(55, 75, 155, 1),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              const Text(
-                "User Name",
-                style: TextStyle(
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                emailAddress!,
+                style: const TextStyle(
                   color: Color.fromRGBO(55, 75, 155, 1),
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -44,9 +80,9 @@ class _ProfileState extends State<Profile> {
                 endIndent: 50,
                 color: Color.fromRGBO(255, 129, 151, 0.3),
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
+                children: [
                   Icon(
                     Icons.edit,
                     size: 20,
@@ -93,15 +129,15 @@ class _ProfileState extends State<Profile> {
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(12.0),
                     child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Column(
-                              children: const [
+                              children: [
                                 Text(
                                   '5\'4"',
                                   style: TextStyle(
@@ -120,7 +156,7 @@ class _ProfileState extends State<Profile> {
                                 ),
                               ],
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 50,
                               child: VerticalDivider(
                                 thickness: 3,
@@ -128,7 +164,7 @@ class _ProfileState extends State<Profile> {
                               ),
                             ),
                             Column(
-                              children: const [
+                              children: [
                                 Text(
                                   '55',
                                   style: TextStyle(
@@ -287,8 +323,8 @@ class _ProfileState extends State<Profile> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton(
-                    child: Row(
-                      children: const [
+                    child: const Row(
+                      children: [
                         Icon(
                           Icons.settings,
                           size: 25,
@@ -318,8 +354,8 @@ class _ProfileState extends State<Profile> {
                     height: 10,
                   ),
                   TextButton(
-                    child: Row(
-                      children: const [
+                    child: const Row(
+                      children: [
                         Icon(
                           Icons.replay,
                           size: 25,

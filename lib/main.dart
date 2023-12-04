@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:gobal_women_fitness_app/resources/model/ColorManager.dart';
+import 'package:gobal_women_fitness_app/Auth/AuthPage.dart';
+import 'package:gobal_women_fitness_app/presentation/ColorManager.dart';
+import 'package:gobal_women_fitness_app/resources/RouteManager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'HomePage.dart';
 import 'SplashScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase/firebaseAPIs.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseApis().initNotification();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool firstTime = prefs.getBool('first_time') ?? true;
   if (firstTime) {
     prefs.setBool('first_time', false);
     runApp(
-      const MaterialApp(
+       const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
+         onGenerateRoute: RouteGenerator.getRoute,
       ),
     );
-  } else {
+  }
+  else {
     runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomePage(),
+        home: const AuthPage(),
         theme: ThemeData(
           // appBarTheme: AppBarTheme(
           //   centerTitle: true,
@@ -48,7 +58,9 @@ void main() async {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 12),
+              elevation: 2,
+                minimumSize: const Size(150, 50),
+                textStyle: const TextStyle(fontSize: 14),
                 backgroundColor: ColorManager.blue,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)))),
