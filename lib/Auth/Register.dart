@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../HomePage.dart';
 import '../firebase/firebaseAPIs.dart';
 import '../presentation/ColorManager.dart';
@@ -25,19 +26,23 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  void userRegister() async {
+  Future <void> userRegister() async {
     //show dialog
     loadingAnimation(context);
     //try sign in
 
     try {
+      await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
+
       if(_passwordController.text == _confirmPasswordController.text){
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: _emailController.text, password: _passwordController.text);
-        Navigator.pop(context);
+
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => const HomePage()));
       }else{
+        Navigator.pop(context);
         message(context,"Passwords don`t match!!");
       }
     } on FirebaseAuthException catch (e) {

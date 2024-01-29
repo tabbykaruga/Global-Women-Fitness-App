@@ -51,15 +51,18 @@ class _ProfileState extends State<Profile> {
                     backgroundImage: photoURL != null && photoURL!.isNotEmpty
                         ? NetworkImage(photoURL!)
                         : NetworkImage(fallbackImageURL),
+                    ),
                   ),
-                  )
                 ),
-              Text(
-                username!,
-                style: const TextStyle(
-                  color: Color.fromRGBO(55, 75, 155, 1),
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+              Visibility(
+                visible: !(username == null || username!.isEmpty),
+                child: Text(
+                  username ?? emailAddress!,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(55, 75, 155, 1),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/Auth/Login.dart';
 import 'package:gobal_women_fitness_app/Auth/LoginOrRegister.dart';
 import 'package:gobal_women_fitness_app/presentation/ColorManager.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../presentation/StateManager.dart';
 
@@ -20,15 +21,18 @@ class _SettingsState extends State<Settings> {
   bool _receiveappup = false;
   bool _googlefit = false;
 
-  Future usersignOut() async {
+  Future<void> usersignOut() async {
 
     loadingAnimation(context);
+
     try {
       await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
       Navigator.pop(context);
+
+      // Sign-out successful.
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const LoginOrRegisterPage()));
-      // Sign-out successful.
 
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);

@@ -28,12 +28,14 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void userLogin() async {
+  Future <void> userLogin() async {
     //show dialog
     loadingAnimation(context);
     //try sign in
 
     try {
+      await FirebaseAuth.instance.signOut();
+
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _emailController.text, password: _passwordController.text);
       Navigator.pop(context);
@@ -72,15 +74,17 @@ class _LoginPageState extends State<LoginPage> {
   }
   signInWithGoogleFirebase() async {
     loadingAnimation(context);
+
     try{
+      //signOut any logedIn user
       await FirebaseAuth.instance.signOut();
-      print("CurrentUser");
-      print(FirebaseAuth.instance.currentUser);
+      await GoogleSignIn().signOut();
 
       final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
-      print("NowUser");
-      print(gUser);
+
       if(gUser != null){
+        print("GUSER");
+        print(gUser);
         //obtain auth details from request
         final GoogleSignInAuthentication gAuth = await gUser!.authentication;
 
@@ -89,7 +93,21 @@ class _LoginPageState extends State<LoginPage> {
           accessToken: gAuth.accessToken,
           idToken: gAuth.idToken,
         );
-        return await FirebaseAuth.instance.signInWithCredential(credential);
+        final UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+        print(userCredential);
+
+        Navigator.pop(context);
+
+        if (userCredential.user != null) {
+          // Sign-in was successful
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomePage()));
+        } else {
+          // Sign-in failed
+          genericErrorMessage(context, "Wrong Credentials !!");
+          print("Wrong Credentials !!");
+        }
       }else{
         Navigator.pop(context);
         genericErrorMessage(context, "User Already Signed in");

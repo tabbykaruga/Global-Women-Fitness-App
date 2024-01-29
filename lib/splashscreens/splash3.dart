@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gobal_women_fitness_app/splashscreens/splashpages.dart';
+import '../Auth/AuthPage.dart';
 import '../HomePage.dart';
 
 class Splash3 extends StatelessWidget {
@@ -21,7 +22,7 @@ class Splash3 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
+                        MaterialPageRoute(builder: (context) => const AuthPage()),
                       );
                     },
                     child: const Text(
